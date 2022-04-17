@@ -15,7 +15,7 @@ using namespace std;
 //step 3- Loop till s.size()-1, the outside loop with go from y=0->k-1. Whenver we encounter a (x,y) pair that has an associated character, we print it
 //else we print space.
 
-void printZigZag(string s,int k){
+void printZigZag(string s,int k,bool fromup){
     int n=s.size();
     if(k==0 || k==1){
         for(int i=0;i<s.size();i++){
@@ -26,7 +26,9 @@ void printZigZag(string s,int k){
     map<pair<int,int>,char> store;
 
     //step 1
-    int p=0;
+    int p;
+    if(fromup) p=0;
+    else p=k-1;
     bool godown=true;
     for(int i=0;i<s.size();i++){
         store[{i,p}]=s[i];
@@ -58,5 +60,14 @@ int main(){
     cin>>s;
     cout<<"Enter height of zigzag: \n";
     cin>>k;
-    printZigZag(s,k);
+    string updown;
+    cout<<"Start from up or down?(u/d): \n";
+    cin>>updown;
+    cout<<"-------\n";
+    if(updown=="u" || updown=="up" || updown=="U"|| updown=="Up"|| updown=="UP"){
+          printZigZag(s,k,true);
+    }else{
+          printZigZag(s,k,false);
+    }
+  
 }

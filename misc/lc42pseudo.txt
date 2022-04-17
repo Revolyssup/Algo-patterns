@@ -1,0 +1,5 @@
+The pseudo algo for trapping water.
+1. Lets go from bottom to up.
+2. For each iteration, n=1-> maxHeight(while only one or zero block remains at top)
+-> 1. count at least i height, and subtract it from n. n is len from first non zero block to last non-zero block
+
